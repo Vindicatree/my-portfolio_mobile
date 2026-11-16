@@ -108,8 +108,7 @@ class InfoCard extends StatelessWidget {
             Text(
               content,
               textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
             ),
           ],
         ),
