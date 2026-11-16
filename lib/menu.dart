@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
-  final String npm = "2406000001";
-  final String nama = "Burhan";
+  final String npm = "2506592125";
+  final String nama = "Nathanael Orrick Hatmoko";
   final String kelas = "PBP A";
 
   final List<ItemHomepage> items = [
@@ -36,11 +36,10 @@ class MyHomePage extends StatelessWidget {
             children: [
                 // Baris horizontal untuk menampilkan 3 InfoCard secara sejajar.
                 Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                    InfoCard(title: 'NPM', content: npm),
-                    InfoCard(title: 'Name', content: nama),
-                    InfoCard(title: 'Class', content: kelas),
+                    Expanded(child: InfoCard(title: 'NPM', content: npm)),
+                    Expanded(child: InfoCard(title: 'Nama', content: nama)),
+                    Expanded(child: InfoCard(title: 'Kelas', content: kelas)),
                 ],
                 ),
 
@@ -97,9 +96,7 @@ class InfoCard extends StatelessWidget {
       // Memberikan efek bayangan kartu elevasi 2 unit.
       elevation: 2.0,
       child: Container(
-        // Menyesuaikan lebar kartu dengan proporsi layar (dibagi 3.5).
-        width: MediaQuery.of(context).size.width / 3.5,
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0),
         // Menyusun teks title dan content secara vertikal.
         child: Column(
           children: [
@@ -108,7 +105,12 @@ class InfoCard extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
-            Text(content),
+            Text(
+              content,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
           ],
         ),
       ),
