@@ -50,5 +50,5 @@ flutter analyze
 
 ## Penggunaan AI
 
-Proyek ini berangkat dari aplikasi Tutorial 08. Saya menggunakan OpenAI Codex sebagai alat bantu untuk membandingkan implementasi dengan checklist Tugas 7, membahas perbaikan yang diperlukan, dan menyusun draf dokumentasi. Atas arahan saya, Codex membantu menerapkan perubahan terbatas pada data kartu profil, warna kartu aksi, dan batas baris nama. Struktur dan fitur dasar aplikasi tetap dikembangkan dari proyek Tutorial 08; Codex tidak membangun seluruh aplikasi dari awal.
+Proyek ini berangkat dari aplikasi Tutorial 08. Saya menggunakan OpenAI Codex sebagai alat bantu untuk membandingkan implementasi dengan checklist Tugas 7, membahas perbaikan yang diperlukan, dan menyusun draf dokumentasi. Atas arahan saya, Codex membantu menerapkan perubahan terbatas pada data kartu profil, warna kartu aksi, dan batas baris nama. Struktur dan fitur dasar aplikasi tetap dikembangkan dari proyek Tutorial 08.
 
