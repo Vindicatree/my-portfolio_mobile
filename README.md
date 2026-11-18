@@ -20,7 +20,10 @@ flutter analyze
 ## Struktur kode
 
 - `lib/main.dart` menginisialisasi aplikasi, tema, dan `MaterialApp`.
-- `lib/menu.dart` berisi halaman utama, kartu identitas (`InfoCard`), model data aksi (`ItemHomepage`), dan kartu aksi (`ItemCard`).
+- `lib/screens/menu.dart` berisi halaman utama, kartu identitas (`InfoCard`), dan model data aksi (`ItemHomepage`).
+- `lib/screens/project_form.dart` berisi form tambah proyek, validasi, serta dialog konfirmasi data.
+- `lib/widgets/left_drawer.dart` berisi drawer untuk berpindah antara halaman utama dan form.
+- `lib/widgets/project_card.dart` berisi kartu aksi (`ItemCard`) dan navigasi dari tombol **Tambah Proyek**.
 
 ## Tugas 7
 
