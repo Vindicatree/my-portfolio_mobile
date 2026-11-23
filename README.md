@@ -1,6 +1,6 @@
 # MyPortfolio Mobile
 
-Aplikasi portofolio pribadi sederhana yang dibuat dengan Flutter. Halaman utama menampilkan identitas pemilik serta tiga kartu aksi: **Lihat Proyek**, **Tambah Proyek**, dan **Logout**. Menekan kartu menampilkan `SnackBar` dengan nama aksi tersebut.
+Aplikasi portofolio pribadi sederhana yang dibuat dengan Flutter. Halaman utama menampilkan identitas pemilik serta kartu aksi untuk **Lihat Proyek**, **Tambah Proyek**, **Tambah Pendidikan**, dan **Logout**. Kartu **Tambah Pendidikan** membuka form pendidikan dengan validasi dan dialog ringkasan.
 
 ## Menjalankan proyek
 
@@ -22,8 +22,9 @@ flutter analyze
 - `lib/main.dart` menginisialisasi aplikasi, tema, dan `MaterialApp`.
 - `lib/screens/menu.dart` berisi halaman utama, kartu identitas (`InfoCard`), dan model data aksi (`ItemHomepage`).
 - `lib/screens/project_form.dart` berisi form tambah proyek, validasi, serta dialog konfirmasi data.
-- `lib/widgets/left_drawer.dart` berisi drawer untuk berpindah antara halaman utama dan form.
-- `lib/widgets/project_card.dart` berisi kartu aksi (`ItemCard`) dan navigasi dari tombol **Tambah Proyek**.
+- `lib/screens/education_form.dart` berisi form pendidikan, validasi input dan rentang tanggal, serta dialog ringkasan.
+- `lib/widgets/left_drawer.dart` berisi drawer untuk berpindah antara halaman utama, form proyek, dan form pendidikan.
+- `lib/widgets/project_card.dart` berisi kartu aksi (`ItemCard`) dan navigasi ke form dari halaman utama.
 
 ## Tugas 7
 
@@ -53,5 +54,27 @@ flutter analyze
 
 ## Penggunaan AI
 
-Proyek ini berangkat dari aplikasi Tutorial 08. Saya menggunakan OpenAI Codex sebagai alat bantu untuk membandingkan implementasi dengan checklist Tugas 7, membahas perbaikan yang diperlukan, dan menyusun draf dokumentasi. Atas arahan saya, Codex membantu menerapkan perubahan terbatas pada data kartu profil, warna kartu aksi, dan batas baris nama. Struktur dan fitur dasar aplikasi tetap dikembangkan dari proyek Tutorial 08.
+Proyek ini berangkat dari aplikasi Tutorial 08. Untuk Tugas 7, saya menggunakan OpenAI Codex sebagai alat bantu untuk membandingkan implementasi dengan checklist, membahas perbaikan yang diperlukan, dan menyusun draf dokumentasi. Atas arahan saya, Codex membantu menerapkan perubahan terbatas pada data kartu profil, warna kartu aksi, dan batas baris nama. Struktur dan fitur dasar aplikasi tetap dikembangkan dari proyek Tutorial 08.
+
+### Tugas 8
+
+1. `Navigator.push()` membuka halaman baru di atas halaman saat ini. `Navigator.pushReplacement()` mengganti halaman saat ini, sedangkan `Navigator.pop()` menutup halaman teratas dan kembali ke halaman sebelumnya. Kartu **Tambah Pendidikan** memakai `Navigator.push()`, jadi tombol kembali membawa pengguna ke halaman utama. Opsi Home pada drawer memakai `Navigator.pushReplacement()` agar pengguna langsung kembali ke halaman utama.
+
+2. `Scaffold` menjadi kerangka tiap halaman. `AppBar` menampilkan judul, sementara `Drawer` menyediakan navigasi yang sama dari halaman utama maupun halaman formulir. Keduanya menggunakan warna utama aplikasi dari `Theme.of(context).colorScheme.primary` agar tampilannya tetap serasi.
+
+3. Input disusun vertikal supaya urutannya mudah diikuti. `Padding` dan `SizedBox` memberi ruang di antara kolom. Formulir dibungkus `SingleChildScrollView` agar tetap bisa digulir di layar pendek atau saat papan ketik terbuka, termasuk untuk menjangkau tombol Simpan.
+
+4. `GlobalKey<FormState>` digunakan untuk mengakses `Form`. Setiap kolom memiliki `validator`, lalu `validate()` menjalankan semua validator saat tombol Simpan ditekan. Nama institusi yang kosong atau hanya berisi spasi, misalnya, akan ditolak. Jenis kolom atau papan ketik yang sesuai membantu pengguna mengisi data, tetapi aplikasi tetap perlu memeriksa nilainya. Pada formulir ini, tanggal mulai dan tanggal selesai juga diperiksa agar urutannya benar.
+
+#### Penggunaan AI pada Tugas 8
+
+Saya menggunakan OpenAI Codex untuk merangkum instruksi Tugas 8 dan menyimpulkan bagian aplikasi yang perlu dikerjakan. 
+
+#### Rencana pemisahan commit Tugas 8
+
+Perubahan Tugas 8 dapat dipisahkan menjadi commit deskriptif berikut:
+
+1. `add education form with validation and summary`
+2. `add education form navigation from home and drawer`
+3. `document task 8 reflections and AI usage`
 
